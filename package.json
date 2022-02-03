@@ -7,9 +7,7 @@
     "test": "jest",
     "start": "node server.js"
   },
-  {
-    "start": "node.js"
-  },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Johnhughes814/u-develop-it.git"
