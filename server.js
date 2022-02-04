@@ -12,7 +12,7 @@ const db = mysql.createConnection(
   {
     host: "localhost",
     // Your MySQL username,
-    user: "Johnhughes814",
+    user: "root",
     // Your MySQL password
     password: "NEW_USER_PASSWORD",
     database: "election",
@@ -24,7 +24,9 @@ const db = mysql.createConnection(
 app.use((req, res) => {
   res.status(404).end();
 });
-
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+  });
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
