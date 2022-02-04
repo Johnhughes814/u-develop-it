@@ -12,7 +12,7 @@ const db = mysql.createConnection(
   {
     host: "localhost",
     // Your MySQL username,
-    user: "johnhughes814",
+    user: "Johnhughes814",
     // Your MySQL password
     password: "NEW_USER_PASSWORD",
     database: "election",
