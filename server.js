@@ -24,10 +24,10 @@ const db = mysql.createConnection(
 app.use((req, res) => {
   res.status(404).end();
 });
-db.query(`SELECT * FROM candidates`, (err, rows) => {
-  console.log(rows);
-});
-//   // GET a single candidate
+// db.query(`SELECT * FROM candidates`, (err, rows) => {
+//   console.log(rows);
+// });
+// //   // GET a single candidate
 // db.query(`SELECT * FROM candidates WHERE id = 1`, (err, row) => {
 //     if (err) {
 //       console.log(err);
@@ -42,17 +42,32 @@ db.query(`SELECT * FROM candidates`, (err, rows) => {
 //   }
 //   console.log(result);
 // });
-// Create a candidate
-const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected) 
-              VALUES (?,?,?,?)`;
-const params = [1, "Ronald", "Firbank", 1];
+// Get all candidates
+app.get("/api/candidates", (req, res) => {
+  const sql = `SELECT * FROM candidates`;
 
-db.query(sql, params, (err, result) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(result);
+  db.query(sql, (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: "success",
+      data: rows,
+    });
+  });
 });
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// // Create a candidate
+// const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
+//               VALUES (?,?,?,?)`;
+// const params = [1, "Ronald", "Firbank", 1];
+
+// db.query(sql, params, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(result);
+// });
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
