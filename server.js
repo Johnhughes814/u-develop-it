@@ -3,7 +3,6 @@ const mysql = require("mysql2");
 const inputCheck = require("./db/utils/inputCheck");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const { name, party, age, years_of_experience, votes } = body;
 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
