@@ -69,7 +69,7 @@ app.delete("/api/candidate/:id", (req, res) => {
 app.post("/api/candidate", ({ body }, res) => {
   //create a candidate
   const { first_name, last_name, industry_connected } = body;
-  const sql = `INSERT INTO candidates (first_name, last_name, industry_connected) VALUES (?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO candidates (first_name, last_name, industry_connected) VALUES (first_name, last_name, industry_connected)`;
   const params = [first_name, last_name, industry_connected];
 
   db.query(sql, params, (err, result) => {
