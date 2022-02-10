@@ -7,7 +7,6 @@
     "test": "jest",
     "start": "node server.js"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Johnhughes814/u-develop-it.git"
@@ -20,6 +19,7 @@
   },
   "homepage": "https://github.com/Johnhughes814/u-develop-it#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "mysql2": "^2.3.3"
   },
